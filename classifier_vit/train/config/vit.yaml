@@ -1,0 +1,28 @@
+epochs: 80
+resume: None
+learning_rate: 0.01
+weight_decay: 10e-6
+inference_device: "cuda"
+
+train:
+  s: 1
+  batch_size: 128
+  num_workers: 4
+  train_path: "./dataset/train_data_patches_new/Stomach_patch_labeled/set4/patch_selected/train"
+  valid_path: "./dataset/train_data_patches_new/Stomach_patch_labeled/set4/patch_selected/valid"
+
+test:
+  batch_size: 8
+  num_workers: 4
+  test_path: "./dataset/train_data_patches_new/Stomach_patch_labeled/set4/patch_selected/test"
+
+model:
+  image_size: 256
+  patch_size: 32
+  num_classes: 3
+  dim: 1024
+  depth: 6
+  heads: 32
+  mlp_dim: 2048
+  dropout: 0.1
+  emb_dropout: 0.1

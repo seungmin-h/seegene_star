@@ -1,0 +1,36 @@
+epochs: 100
+resume: None
+learning_rate: 0.01
+weight_decay: 10e-6
+inference_device: "cuda"
+
+train:
+  s: 1
+  batch_size: 128
+  num_workers: 4
+  train_path: "./dataset/train_data_patches_new/Stomach_patch_labeled/set4/patch_selected/train"
+  valid_path: "./dataset/train_data_patches_new/Stomach_patch_labeled/set4/patch_selected/valid"
+
+test:
+  batch_size: 8
+  num_workers: 4
+  test_path: "./dataset/train_data_patches_new/Stomach_patch_labeled/set4/patch_selected/test"
+
+model:
+  image_size: 256
+  num_classes: 3
+  depth: 4               # number of multi-scale encoding blocks
+  sm_dim: 192            # high res dimension
+  sm_patch_size: 16      # high res patch size (should be smaller than lg_patch_size)
+  sm_enc_depth: 2        # high res depth
+  sm_enc_heads: 8        # high res heads
+  sm_enc_mlp_dim: 2048   # high res feedforward dimension
+  lg_dim: 384            # low res dimension
+  lg_patch_size: 64      # low res patch size
+  lg_enc_depth: 3        # low res depth
+  lg_enc_heads: 8        # low res heads
+  lg_enc_mlp_dim: 2048   # low res feedforward dimensions
+  cross_attn_depth: 2    # cross attention rounds
+  cross_attn_heads: 8    # cross attention heads
+  dropout: 0.1
+  emb_dropout: 0.1
